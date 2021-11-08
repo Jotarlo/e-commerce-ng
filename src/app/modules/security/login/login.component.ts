@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GeneralData } from 'src/app/config/general-data';
 import { UserCredentialsModel } from 'src/app/models/user-credencials.model';
 import { MD5 } from 'crypto-js';
+import { SecurityService } from 'src/app/services/security.service';
 
 declare const OpenGeneralMessageModal: any;
 
@@ -16,7 +17,8 @@ export class LoginComponent implements OnInit {
   form: FormGroup = new FormGroup({});
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private securityService: SecurityService
   ) { }
 
   ngOnInit(): void {
@@ -38,6 +40,14 @@ export class LoginComponent implements OnInit {
       let modelo = new UserCredentialsModel();
       modelo.username = this.GetForm.username.value;
       modelo.password = MD5(this.GetForm.password.value).toString();
+      this.securityService.Login(modelo).subscribe({
+        next: (data: any) => {
+          console.log(data);
+        },
+        error: (error: any) => {
+          OpenGeneralMessageModal(GeneralData.GENERAL_ERROR_MESSAGE)
+        }
+      });
     }
   }
 
