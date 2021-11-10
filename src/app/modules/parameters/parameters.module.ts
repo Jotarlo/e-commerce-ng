@@ -10,6 +10,7 @@ import { CategoryCreationComponent } from './category/category-creation/category
 import { CategoryEditionComponent } from './category/category-edition/category-edition.component';
 import { CategoryListComponent } from './category/category-list/category-list.component';
 import { RemoveCategoryComponent } from './category/remove-category/remove-category.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -25,7 +26,9 @@ import { RemoveCategoryComponent } from './category/remove-category/remove-categ
   ],
   imports: [
     CommonModule,
-    ParametersRoutingModule
+    ParametersRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ParametersModule { }

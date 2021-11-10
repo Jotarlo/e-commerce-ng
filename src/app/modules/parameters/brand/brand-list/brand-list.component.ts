@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BrandModel } from 'src/app/models/parameters/brand.model';
+import { BrandService } from 'src/app/services/parameters/brand.service';
 
 @Component({
   selector: 'app-brand-list',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BrandListComponent implements OnInit {
 
-  constructor() { }
+  recordList: BrandModel[] = [];
+
+
+  constructor(
+    private service: BrandService
+  ) { }
 
   ngOnInit(): void {
+    this.GetRecordList();
+  }
+
+  GetRecordList(){
+    this.service.GetRecordList().subscribe({
+      next: (data: BrandModel[]) => {
+        this.recordList = data;
+      }
+    });
   }
 
 }

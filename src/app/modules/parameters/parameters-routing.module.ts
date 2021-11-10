@@ -15,7 +15,7 @@ const routes: Routes = [
     component: BrandCreationComponent
   },
   {
-    path: "brand-edition",
+    path: "brand-edition/:id",
     component: BrandEditionComponent
   },
   {
