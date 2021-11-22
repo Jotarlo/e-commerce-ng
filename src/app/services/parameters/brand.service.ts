@@ -54,4 +54,14 @@ export class BrandService {
       });
   }
 
+  RemoveRecord(id: number): Observable<any>{
+    return this.http.delete(
+      `${this.url}/brands/${id}`,
+      {
+        headers: new HttpHeaders({
+          Authorization: `Bearer ${this.token}`
+        })
+      });
+  }
+
 }

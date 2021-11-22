@@ -23,7 +23,7 @@ const routes: Routes = [
     component: BrandListComponent
   },
   {
-    path: "brand-product",
+    path: "remove-brand/:id",
     component: RemoveBrandComponent
   },
   {

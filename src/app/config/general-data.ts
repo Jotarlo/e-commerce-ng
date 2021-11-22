@@ -6,6 +6,7 @@ export namespace GeneralData{
     export const ADMIN_USERS_URL = "http://localhost:3003";
     export const BUSSINESS_URL = "http://localhost:3000";
     export const SAVED_MESSAGE = "Registro almacenado";
+    export const REMOVED_MESSAGE = "Registro eliminado";
     export const ERROR_MESSAGE = "Error en el backend";
     export const GENERAL_ERROR_MESSAGE = "Error al conectarse con el backend";
 }
