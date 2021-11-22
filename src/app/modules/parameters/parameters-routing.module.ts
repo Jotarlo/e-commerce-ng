@@ -31,7 +31,7 @@ const routes: Routes = [
     component: CategoryCreationComponent
   },
   {
-    path: "category-edition",
+    path: "category-edition/:id",
     component: CategoryEditionComponent
   },
   {
@@ -39,7 +39,7 @@ const routes: Routes = [
     component: CategoryListComponent
   },
   {
-    path: "category-product",
+    path: "remove-category/:id",
     component: RemoveCategoryComponent
   }
 ];

@@ -9,4 +9,5 @@ export namespace GeneralData{
     export const REMOVED_MESSAGE = "Registro eliminado";
     export const ERROR_MESSAGE = "Error en el backend";
     export const GENERAL_ERROR_MESSAGE = "Error al conectarse con el backend";
+    export const RECORDS_BY_PAGE = 3;
 }

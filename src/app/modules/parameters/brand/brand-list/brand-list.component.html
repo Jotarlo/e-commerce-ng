@@ -14,7 +14,7 @@
         </th>
     </thead>
     <tbody>
-        <tr *ngFor="let r of recordList">
+        <tr *ngFor="let r of recordList | paginate: { itemsPerPage: pageSize, currentPage: p, totalItems: total }">
             <td>
                 {{r.id}}
             </td>
@@ -24,6 +24,11 @@
             <td>
                 <a routerLink="/parameters/brand-edition/{{r.id}}" class="btn btn-warning orange">Editar</a>
                 &nbsp;<a routerLink="/parameters/remove-brand/{{r.id}}" class="btn btn-warning red">Eliminar</a>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <pagination-controls (pageChange)="p = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
             </td>
         </tr>
     </tbody>

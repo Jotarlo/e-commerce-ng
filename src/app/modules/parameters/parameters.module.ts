@@ -11,6 +11,7 @@ import { CategoryEditionComponent } from './category/category-edition/category-e
 import { CategoryListComponent } from './category/category-list/category-list.component';
 import { RemoveCategoryComponent } from './category/remove-category/remove-category.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     ParametersRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ]
 })
 export class ParametersModule { }
