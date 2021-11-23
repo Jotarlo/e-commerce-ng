@@ -1,1 +1,69 @@
-<p>product-creation works!</p>
+<div class="row">
+    <div class="col s12">
+        <div class="row">
+            <div class="col s12 center-align">
+                <img *ngIf="!uploadedFile" class="default-product" src="/assets/images/products/default-product-image.png" />
+                <img *ngIf="uploadedFile" class="default-product" src="{{url}}/archivo/1/{{uploadedFilename}}" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12  center-align">
+                <input class="btn btn-warning orange" type="file" name="image" (change)="OnchangeInputFile($event)" />
+                &nbsp;<button (click)="UploadImage()" class="btn">Cargar Imagen</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <form [formGroup]="form" class="col s12">
+        <input type="text" formControlName="main_image" />
+        <div class="row">
+            <div class="input-field col s3">
+                <input formControlName="name" id="name" type="text">
+                <label for="name">Nombre</label>
+            </div>
+            <div class="input-field col s3">
+                <input formControlName="price" id="txtPrice" type="text">
+                <label for="txtPrice">Precio</label>
+            </div>
+            <div class="input-field col s3">
+                <input formControlName="stock" id="txtStock" type="text">
+                <label for="txtStock">Existencia</label>
+            </div>
+            <div class="input-field col s3">
+                <input formControlName="stars" id="txtStars" type="text">
+                <label for="txtStars">Calificación</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s3">
+                <input formControlName="discount" id="txtDiscount" type="text">
+                <label for="txtDiscount">Descuento</label>
+            </div>
+            <div class="input-field col s3">
+                <select id="selBrand">
+                    <option *ngFor="let b of brandList" value="{{b.id}}">{{b.name}}</option>
+                </select>
+                <label>Marca</label>
+            </div>
+            <div class="input-field col s6">
+                <select multiple id="selCategories">
+                    <option *ngFor="let c of categoryList" value="{{c.id}}">{{c.name}}</option>
+                </select>
+                <label>Categorías</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s2">
+                <a routerLink="/product/product-list" class="btn btn-warning red">
+                    Cancelar
+                </a>
+            </div>
+            <div class="input-field col s10">
+                <button (click)="SaveRecord()" class="btn btn-success">
+                    Guardar
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

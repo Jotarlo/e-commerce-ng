@@ -7,6 +7,8 @@ import { ProductEditionComponent } from './product-edition/product-edition.compo
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductImagesComponent } from './product-images/product-images.component';
 import { RemoveProductComponent } from './remove-product/remove-product.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -19,7 +21,10 @@ import { RemoveProductComponent } from './remove-product/remove-product.componen
   ],
   imports: [
     CommonModule,
-    ProductRoutingModule
+    ProductRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxPaginationModule
   ]
 })
 export class ProductModule { }
