@@ -1,1 +1,21 @@
-<h2>Bienvenido(a) al sistema</h2>
+<div class="row">
+    <div class="col s3" *ngFor="let p of productList">
+        <div class="card">
+            <div class="card-image">
+                <img class="cardImage" src="{{url}}/archivo/1/{{p.main_image}}">
+                <span class="card-title">{{p.name}}</span>
+            </div>
+            <div class="card-content">
+                <ul>
+                    <li><label>Marca: {{p.brand?.name}}</label></li>
+                    <li><label>Precio: {{p.price | currency}}</label></li>
+                    <li><label>Existencia: {{p.stock}}</label></li>
+                    <li><label>Calificación: {{p.stars}}</label></li>
+                </ul>
+            </div>
+            <div class="card-action">
+                <a routerLink="/">Ver mas...</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { SessionData } from 'src/app/models/session-data.model';
 import { GeneralData } from '../../config/general-data';
 import { UserCredentialsModel } from '../../models/user-credencials.model';
+import { LocalStorageService } from './local-storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,8 @@ export class SecurityService {
   url: string = GeneralData.ADMIN_USERS_URL;
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private localStorageService: LocalStorageService
   ) {
     this.IsThereActiveSession();
    }
@@ -40,6 +42,16 @@ export class SecurityService {
     return this.http.post<SessionData>(`${this.url}/identificar-usuario`, {
       usuario: modelo.username,
       clave: modelo.password
+    });
+  }
+
+  VerificarToken(): Observable<boolean> {
+    let tk = this.localStorageService.GetToken();
+    if(tk == ""){
+      return of(false);
+    }
+    return this.http.post<boolean>(`${this.url}/token-validator`, {
+      token: tk
     });
   }
 

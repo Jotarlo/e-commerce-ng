@@ -2,3 +2,17 @@ h2{
     color: blue;
     text-align: center;
 }
+
+.cardImage{
+    width: 150px;
+    height: 150px;
+}
+
+.card-title{
+    color: white !important;
+    background: rgba(0,0,0, 0.5);
+    width: 100%;
+    font-size: 12px;
+    padding: 5px !important;
+    font-weight: bold;
+}
