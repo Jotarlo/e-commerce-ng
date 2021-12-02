@@ -28,11 +28,6 @@ export class BrandService {
       `${this.url}/brands`,
       {
         name: data.name
-      },
-      {
-        headers: new HttpHeaders({
-          Authorization: `Bearer ${this.token}`
-        })
       });
   }
 
@@ -46,22 +41,12 @@ export class BrandService {
       {
         id: data.id,
         name: data.name
-      },
-      {
-        headers: new HttpHeaders({
-          Authorization: `Bearer ${this.token}`
-        })
       });
   }
 
   RemoveRecord(id: number): Observable<any>{
     return this.http.delete(
-      `${this.url}/brands/${id}`,
-      {
-        headers: new HttpHeaders({
-          Authorization: `Bearer ${this.token}`
-        })
-      });
+      `${this.url}/brands/${id}`);
   }
 
 }

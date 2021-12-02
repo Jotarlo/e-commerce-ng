@@ -28,11 +28,6 @@ export class CategoryService {
       `${this.url}/categories`,
       {
         name: data.name
-      },
-      {
-        headers: new HttpHeaders({
-          Authorization: `Bearer ${this.token}`
-        })
       });
   }
 
@@ -46,22 +41,12 @@ export class CategoryService {
       {
         id: data.id,
         name: data.name
-      },
-      {
-        headers: new HttpHeaders({
-          Authorization: `Bearer ${this.token}`
-        })
       });
   }
 
   RemoveRecord(id: number): Observable<any>{
     return this.http.delete(
-      `${this.url}/categories/${id}`,
-      {
-        headers: new HttpHeaders({
-          Authorization: `Bearer ${this.token}`
-        })
-      });
+      `${this.url}/categories/${id}`);
   }
 
 }
